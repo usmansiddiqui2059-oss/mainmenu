@@ -1,0 +1,65 @@
+{
+  "native": {
+    "width": 480,
+    "height": 270
+  },
+  "palette": "Mission Night 48",
+  "source": "environment-concept-atlas.png",
+  "eventSource": "observatory-concept.png",
+  "plates": {
+    "launch": "backgrounds/title.png",
+    "orbit": "backgrounds/crew-cabin.png",
+    "mars": "backgrounds/mars-surface.png",
+    "workshop": "backgrounds/maintenance-bay.png",
+    "event": "backgrounds/event-observatory.png"
+  },
+  "anchors": {
+    "launch": {
+      "rocket": [
+        350,
+        243
+      ]
+    },
+    "event": {
+      "sculpture": [
+        365,
+        126
+      ],
+      "base": [
+        365,
+        205
+      ]
+    },
+    "orbit": {
+      "astronaut": [
+        393,
+        210
+      ]
+    },
+    "mars": {
+      "astronaut": [
+        404,
+        220
+      ]
+    },
+    "workshop": {
+      "astronaut": [
+        352,
+        214
+      ],
+      "spriteOrigin": [
+        264,
+        70
+      ],
+      "nativeRoot": [
+        44,
+        72
+      ],
+      "spriteScale": 2,
+      "contact": [
+        304,
+        114
+      ]
+    }
+  }
+}

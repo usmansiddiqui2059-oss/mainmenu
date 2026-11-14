@@ -1,0 +1,54 @@
+{
+  "title": "Mission Control",
+  "version": "02.01",
+  "event": "NASA Space Apps Challenge 2026",
+  "items": [
+    {
+      "id": "play",
+      "label": "Play Game",
+      "scene": "orbit"
+    },
+    {
+      "id": "continue",
+      "label": "Continue Game",
+      "scene": "orbit"
+    },
+    {
+      "id": "sandbox",
+      "label": "Sandbox mode",
+      "scene": "mars"
+    },
+    {
+      "id": "settings",
+      "label": "Settings",
+      "scene": "workshop"
+    },
+    {
+      "id": "about",
+      "label": "About the event",
+      "scene": "event"
+    }
+  ],
+  "animation": {
+    "width": 480,
+    "height": 270,
+    "fps": 30,
+    "transitionMs": 240,
+    "hoverDelayMs": 90,
+    "seed": 392026
+  },
+  "destinations": [
+    {
+      "id": "moon",
+      "name": "The Moon",
+      "label": "LUNAR EXPEDITION",
+      "description": "Design a mission to our nearest neighbour."
+    },
+    {
+      "id": "mars",
+      "name": "Mars",
+      "label": "MARTIAN EXPEDITION",
+      "description": "Plan the long journey to the red planet."
+    }
+  ]
+}
