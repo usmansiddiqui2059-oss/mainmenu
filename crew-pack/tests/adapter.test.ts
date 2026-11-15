@@ -35,3 +35,10 @@ it("requires sealed suits for EVA actions and rejects invalid clocks", () => {
   );
   expect(() => getCrewFrame(m, { ...base, elapsedMs: NaN })).toThrow("finite");
 });
+
+it("exposes a detailed frame without changing the legacy pivot", () => {
+  const high = getCrewFrame(m, { ...base, resolution: "detail" });
+  expect(high.rect).toEqual({ x: 0, y: 0, width: 128, height: 192 });
+  expect(high.origin).toEqual({ x: 64, y: 176 });
+  expect(high.path).toContain("detail/");
+});

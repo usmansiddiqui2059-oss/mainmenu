@@ -6,7 +6,7 @@ export interface FrameOptions {
   variant: "cabin" | "eva";
   direction: "se" | "sw" | "ne" | "nw";
   elapsedMs: number;
-  resolution?: "master" | "gameplay";
+  resolution?: "master" | "detail" | "gameplay";
 }
 export function getCrewFrame(manifest: Manifest, options: FrameOptions) {
   if (!Number.isFinite(options.elapsedMs))
@@ -27,11 +27,21 @@ export function getCrewFrame(manifest: Manifest, options: FrameOptions) {
       ? tick % row.frames.length
       : Math.min(tick, row.frames.length - 1),
     frame = row.frames[index],
-    factor = options.resolution === "gameplay" ? 0.25 : 1;
+    factor =
+      options.resolution === "gameplay"
+        ? 0.25
+        : options.resolution === "detail"
+          ? 2
+          : 1;
   const point = (p: { x: number; y: number } | null) =>
     p ? { x: p.x * factor, y: p.y * factor } : null;
   return {
-    path: factor === 1 ? atlas.master : atlas.gameplay,
+    path:
+      factor === 1
+        ? atlas.master
+        : factor === 2
+          ? atlas.detail
+          : atlas.gameplay,
     index,
     complete: !row.loop && tick >= row.frames.length,
     rect: {
@@ -78,4 +88,25 @@ export function drawCrewFrame(
     r.height * scale,
   );
   ctx.restore();
+}
+
+export function getCrewWalkVelocity(
+  manifest: Manifest,
+  crew: FrameOptions["crew"],
+  direction: FrameOptions["direction"],
+  resolution: NonNullable<FrameOptions["resolution"]> = "master",
+) {
+  const atlas = manifest.atlases.find(
+    (a) => a.crew === crew && a.direction === direction,
+  );
+  if (!atlas) throw new Error("Unknown crew");
+  const row = atlas.rows.find((r) => r.action === "walk")!;
+  const yaw =
+      ({ se: 45, sw: 315, ne: 135, nw: 225 }[direction] * Math.PI) / 180,
+    scale = resolution === "detail" ? 2 : resolution === "gameplay" ? 0.25 : 1,
+    speed =
+      ((manifest.movement.worldUnitsPerWalkCycle * row.fps) /
+        row.frames.length) *
+      scale;
+  return { x: Math.sin(yaw) * speed, y: Math.cos(yaw) * 0.5 * speed };
 }

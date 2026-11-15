@@ -1,12 +1,11 @@
-import { createCanvas, loadImage } from "@napi-rs/canvas";
+import { createCanvas } from "@napi-rs/canvas";
 import { writeFile } from "node:fs/promises";
 import { crew, animations } from "../src/data";
 import { renderCrew } from "../src/render";
-import { loadArt, canvasFor } from "./lib";
-const art = await loadArt(),
-  c = createCanvas(1536, 1728),
+import { canvasFor } from "./lib";
+const c = createCanvas(1536, 1728),
   x = c.getContext("2d");
-x.fillStyle = "#030508";
+x.fillStyle = "#0b111c";
 x.fillRect(0, 0, c.width, c.height);
 x.imageSmoothingEnabled = false;
 for (let i = 0; i < crew.length; i++) {
@@ -17,9 +16,14 @@ for (let i = 0; i < crew.length; i++) {
   x.fillText(p.name, 6, y + 18);
   for (let a = 0; a < animations.length; a++) {
     const action = animations[a].id,
-      variant = action.startsWith("eva_") ? "eva" : "cabin";
-    const r = renderCrew(p, art[p.id], action, 0.375, "se", variant);
-    x.drawImage(canvasFor(r.pixels), a * 136, y + 24, 128, 192);
+      v = action.startsWith("eva_") ? "eva" : "cabin";
+    x.drawImage(
+      canvasFor(renderCrew(p, action, 0.375, "se", v).detailPixels),
+      a * 136,
+      y + 24,
+      128,
+      192,
+    );
     if (i === 0) {
       x.fillStyle = "#72899e";
       x.font = "10px monospace";
@@ -28,23 +32,41 @@ for (let i = 0; i < crew.length; i++) {
   }
 }
 await writeFile("review/all-actions.png", c.toBuffer("image/png"));
-const backs = createCanvas(1024, 416),
-  bc = backs.getContext("2d");
-bc.fillStyle = "#030508";
-bc.fillRect(0, 0, 1024, 416);
-bc.imageSmoothingEnabled = false;
+const b = createCanvas(1024, 832),
+  bc = b.getContext("2d");
+bc.fillStyle = "#0b111c";
+bc.fillRect(0, 0, b.width, b.height);
 for (let i = 0; i < crew.length; i++)
-  for (const [variant, row] of [
-    ["cabin", 0],
-    ["eva", 1],
-  ] as const)
-    bc.drawImage(
-      canvasFor(
-        renderCrew(crew[i], art[crew[i].id], "idle", 0, "ne", variant).pixels,
-      ),
-      i * 128,
-      row * 208,
-      128,
-      192,
+  for (let d = 0; d < 2; d++)
+    for (let v = 0; v < 2; v++) {
+      bc.drawImage(
+        canvasFor(
+          renderCrew(
+            crew[i],
+            "idle",
+            0,
+            d === 0 ? "ne" : "nw",
+            v === 0 ? "cabin" : "eva",
+          ).detailPixels,
+        ),
+        i * 128,
+        (d * 2 + v) * 208,
+      );
+    }
+await writeFile("review/rear-views.png", b.toBuffer("image/png"));
+const walk = createCanvas(1024, 1664),
+  wc = walk.getContext("2d");
+wc.fillStyle = "#0b111c";
+wc.fillRect(0, 0, walk.width, walk.height);
+for (let i = 0; i < crew.length; i++)
+  for (let f = 0; f < 8; f++) {
+    wc.drawImage(
+      canvasFor(renderCrew(crew[i], "walk", f / 8, "se", "cabin").detailPixels),
+      f * 128,
+      i * 208,
     );
-await writeFile("review/rear-views.png", backs.toBuffer("image/png"));
+    wc.fillStyle = "#98a9b7";
+    wc.font = "11px sans-serif";
+    wc.fillText(crew[i].name + " / " + (f + 1), f * 128 + 6, i * 208 + 204);
+  }
+await writeFile("review/walk-cycles.png", walk.toBuffer("image/png"));

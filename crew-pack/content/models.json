@@ -1,0 +1,26 @@
+{
+  "ayesha": {
+    "shoulderHalfWidth": 10,
+    "hipHalfWidth": 7.3,
+    "headHeightPx": 38
+  },
+  "maya": {
+    "shoulderHalfWidth": 10.8,
+    "hipHalfWidth": 7.8,
+    "headHeightPx": 36
+  },
+  "bilal": {
+    "shoulderHalfWidth": 9.2,
+    "hipHalfWidth": 6.6,
+    "headHeightPx": 37
+  },
+  "lin": { "shoulderHalfWidth": 9.3, "hipHalfWidth": 6.8, "headHeightPx": 36 },
+  "sana": { "shoulderHalfWidth": 9.4, "hipHalfWidth": 7.1, "headHeightPx": 38 },
+  "kofi": {
+    "shoulderHalfWidth": 10.8,
+    "hipHalfWidth": 7.5,
+    "headHeightPx": 36
+  },
+  "omar": { "shoulderHalfWidth": 11.8, "hipHalfWidth": 8, "headHeightPx": 36 },
+  "zara": { "shoulderHalfWidth": 10.2, "hipHalfWidth": 7.1, "headHeightPx": 38 }
+}

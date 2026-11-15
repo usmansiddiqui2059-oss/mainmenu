@@ -13,10 +13,18 @@ export function getCrewFrame(manifest, options) {
         throw new Error(`Unknown animation: ${options.action}`);
     const tick = Math.floor((Math.max(0, options.elapsedMs) * row.fps) / 1000), index = row.loop
         ? tick % row.frames.length
-        : Math.min(tick, row.frames.length - 1), frame = row.frames[index], factor = options.resolution === "gameplay" ? 0.25 : 1;
+        : Math.min(tick, row.frames.length - 1), frame = row.frames[index], factor = options.resolution === "gameplay"
+        ? 0.25
+        : options.resolution === "detail"
+            ? 2
+            : 1;
     const point = (p) => p ? { x: p.x * factor, y: p.y * factor } : null;
     return {
-        path: factor === 1 ? atlas.master : atlas.gameplay,
+        path: factor === 1
+            ? atlas.master
+            : factor === 2
+                ? atlas.detail
+                : atlas.gameplay,
         index,
         complete: !row.loop && tick >= row.frames.length,
         rect: {
@@ -46,4 +54,14 @@ export function drawCrewFrame(ctx, image, frame, worldX, worldY, scale = 1) {
     ctx.imageSmoothingEnabled = false;
     ctx.drawImage(image, r.x, r.y, r.width, r.height, Math.round(worldX - frame.origin.x * scale), Math.round(worldY - frame.origin.y * scale), r.width * scale, r.height * scale);
     ctx.restore();
+}
+export function getCrewWalkVelocity(manifest, crew, direction, resolution = "master") {
+    const atlas = manifest.atlases.find((a) => a.crew === crew && a.direction === direction);
+    if (!atlas)
+        throw new Error("Unknown crew");
+    const row = atlas.rows.find((r) => r.action === "walk");
+    const yaw = ({ se: 45, sw: 315, ne: 135, nw: 225 }[direction] * Math.PI) / 180, scale = resolution === "detail" ? 2 : resolution === "gameplay" ? 0.25 : 1, speed = ((manifest.movement.worldUnitsPerWalkCycle * row.fps) /
+        row.frames.length) *
+        scale;
+    return { x: Math.sin(yaw) * speed, y: Math.cos(yaw) * 0.5 * speed };
 }

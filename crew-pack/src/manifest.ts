@@ -9,12 +9,21 @@ import {
 } from "./data";
 const point = z.object({ x: z.number(), y: z.number() });
 export const manifestSchema = z.object({
-  version: z.literal("1.0.0"),
+  version: z.literal("1.1.0"),
   palette: z.array(z.string()).length(64),
   frame: z.object({
     width: z.literal(64),
     height: z.literal(96),
     origin: point,
+  }),
+  detailFrame: z.object({
+    width: z.literal(128),
+    height: z.literal(192),
+    origin: point,
+  }),
+  movement: z.object({
+    worldUnitsPerWalkCycle: z.number(),
+    pixelsPerUnitMaster: z.literal(1),
   }),
   gameplayFrame: z.object({
     width: z.literal(16),
@@ -38,6 +47,7 @@ export const manifestSchema = z.object({
         variant: z.enum(variants),
         direction: z.enum(directions),
         master: z.string(),
+        detail: z.string(),
         gameplay: z.string(),
         rows: z
           .array(

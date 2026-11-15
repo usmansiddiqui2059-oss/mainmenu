@@ -129,7 +129,7 @@
   });
   async function render() {
     const low = resolution.value === "gameplay",
-      factor = low ? 0.25 : 1,
+      factor = low ? 0.25 : resolution.value === "detail" ? 2 : 1,
       rows = m.crew.map((c) => {
         const a = m.atlases.find(
             (a) =>
@@ -146,7 +146,11 @@
           r,
           f,
           index: r.loop ? tick % 8 : Math.min(tick, 7),
-          path: low ? a.gameplay : a.master,
+          path: low
+            ? a.gameplay
+            : resolution.value === "detail"
+              ? a.detail
+              : a.master,
         };
       });
     const key = [
@@ -185,6 +189,7 @@
         lineup.font = "12px sans-serif";
         lineup.fillText(row.c.name, i * 128 + 22, 204);
         if (row.c.id === selected) {
+          if (action.value === "walk") floor(stage, row);
           context(stage, f, action.value);
           stage.drawImage(
             decoded[i],
@@ -215,6 +220,35 @@
       updatePause();
     }
   }
+  function floor(ctx, row) {
+    const yaw =
+        ({ se: 45, sw: 315, ne: 135, nw: 225 }[direction.value] * Math.PI) /
+        180,
+      tick = Math.floor((elapsed * row.r.fps) / 1000),
+      travel = (tick * m.movement.worldUnitsPerWalkCycle) / 8,
+      dx = Math.sin(yaw) * travel,
+      dy = -Math.cos(yaw) * travel,
+      bx = Math.floor(((dx + dy) * Math.SQRT1_2) / 12) * 12,
+      by = Math.floor(((dy - dx) * Math.SQRT1_2) / 12) * 12;
+    ctx.strokeStyle = "#172438";
+    ctx.lineWidth = 1;
+    function line(a, b, c, d) {
+      ctx.beginPath();
+      ctx.moveTo(
+        128 + ((a - b) * Math.SQRT1_2 - dx) * 4,
+        352 - ((a + b) * Math.SQRT1_2 - dy) * 2,
+      );
+      ctx.lineTo(
+        128 + ((c - d) * Math.SQRT1_2 - dx) * 4,
+        352 - ((c + d) * Math.SQRT1_2 - dy) * 2,
+      );
+      ctx.stroke();
+    }
+    for (let k = -12; k <= 12; k++) {
+      line(bx + k * 12, by - 144, bx + k * 12, by + 144);
+      line(bx - 144, by + k * 12, bx + 144, by + k * 12);
+    }
+  }
   function context(ctx, f, a) {
     if (a === "eva_float") {
       const t = f.anchors.tether;
@@ -228,12 +262,17 @@
     if (a === "eva_repair") {
       const t = f.anchors.toolTip;
       if (t) {
+        const h = f.anchors.handL,
+          l = Math.min(t.x, h.x) - 4,
+          top = Math.min(t.y, h.y) - 5,
+          w = Math.max(t.x, h.x) - l + 4,
+          height = Math.max(t.y, h.y) - top + 5;
         ctx.fillStyle = "#20314a";
-        ctx.fillRect(t.x * 4 - 7, t.y * 4 - 24, 23, 48);
+        ctx.fillRect(l * 4, top * 4, w * 4, height * 4);
         ctx.strokeStyle = "#72899e";
-        ctx.strokeRect(t.x * 4 - 7, t.y * 4 - 24, 23, 48);
+        ctx.strokeRect(l * 4, top * 4, w * 4, height * 4);
         ctx.fillStyle = "#c99d55";
-        ctx.fillRect(t.x * 4 - 2, t.y * 4 - 10, 8, 3);
+        ctx.fillRect(t.x * 4 - 2, t.y * 4 - 2, 4, 4);
       }
     }
   }

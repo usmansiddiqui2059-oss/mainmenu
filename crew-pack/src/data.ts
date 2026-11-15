@@ -84,21 +84,3 @@ export const FRAME = {
   height: 96,
   origin: { x: 32, y: 88 },
 } as const;
-import rigInput from "../content/rig.json";
-const point = z.tuple([z.number(), z.number()]);
-export const rigSchema = z.object({
-  neck: point,
-  hip: point,
-  shoulderL: point,
-  shoulderR: point,
-  elbowL: point,
-  elbowR: point,
-  handL: point,
-  handR: point,
-  kneeL: point,
-  kneeR: point,
-  footL: point,
-  footR: point,
-});
-export const neutralRigs = z.record(z.enum(crewIds), rigSchema).parse(rigInput);
-export type Skeleton = z.infer<typeof rigSchema>;

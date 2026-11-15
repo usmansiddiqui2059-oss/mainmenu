@@ -1,29 +1,5 @@
-import { createCanvas, loadImage } from "@napi-rs/canvas";
-import { readFile } from "node:fs/promises";
-import { crew } from "../src/data";
-import type { Art } from "../src/render";
+import { createCanvas } from "@napi-rs/canvas";
 import type { Pixels } from "../src/pixels";
-export async function loadArt() {
-  const anchors = JSON.parse(
-    await readFile("art-src/base-anchors.json", "utf8"),
-  );
-  const result: Record<string, Art> = {};
-  for (const p of crew) {
-    const image = await loadImage(`art-src/bases/${p.id}.png`),
-      c = createCanvas(64, 96),
-      x = c.getContext("2d");
-    x.drawImage(image, 0, 0);
-    result[p.id] = {
-      texture: {
-        width: 64,
-        height: 96,
-        data: x.getImageData(0, 0, 64, 96).data,
-      },
-      head: anchors[p.id].head,
-    };
-  }
-  return result;
-}
 export function canvasFor(p: Pixels) {
   const c = createCanvas(p.width, p.height);
   p.flush(c.getContext("2d") as unknown as CanvasRenderingContext2D);

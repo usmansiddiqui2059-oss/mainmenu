@@ -3,14 +3,12 @@ import { writeFile, mkdir } from "node:fs/promises";
 import { crew } from "../src/data";
 import { renderCrew } from "../src/render";
 import { Pixels } from "../src/pixels";
-import { canvasFor, svgFor, loadArt } from "./lib";
-const art = await loadArt();
+import { canvasFor, svgFor } from "./lib";
 await mkdir("assets/sprites", { recursive: true });
 for (const c of crew)
   for (let f = -1; f < 4; f++) {
     const p = renderCrew(
         c,
-        art[c.id],
         f < 0 ? "idle" : "walk",
         f < 0 ? 0 : f / 4,
         "se",
@@ -32,14 +30,7 @@ for (const c of crew)
       );
   }
 for (let f = 0; f < 2; f++) {
-  const p = renderCrew(
-      crew[0],
-      art.ayesha,
-      "eva_float",
-      f / 2,
-      "se",
-      "eva",
-    ).pixels,
+  const p = renderCrew(crew[0], "eva_float", f / 2, "se", "eva").pixels,
     c = createCanvas(24, 32),
     x = c.getContext("2d");
   x.imageSmoothingEnabled = false;

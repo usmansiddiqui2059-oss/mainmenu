@@ -34,6 +34,7 @@ it("runs the embedded offline viewer and exercises crew, EVA, pause and resoluti
           strokeRect() {},
           beginPath() {},
           moveTo() {},
+          lineTo() {},
           quadraticCurveTo() {},
           stroke() {},
           imageSmoothingEnabled: false,
@@ -68,13 +69,20 @@ it("runs the embedded offline viewer and exercises crew, EVA, pause and resoluti
   expect(d.querySelectorAll("[data-crew]")).toHaveLength(8);
   await tick(0);
   await tick(16);
+  for (let i = 0; i < 75 && draws.length === 0; i++)
+    await new Promise((r) => setTimeout(r, 20));
   expect(draws.length).toBeGreaterThan(0);
   (d.querySelector('[data-crew="sana"]') as HTMLButtonElement).click();
   expect(d.getElementById("name")!.textContent).toBe("Dr. Sana");
+  select("action", "walk");
+  await tick(25);
+  expect(d.getElementById("status")!.textContent).toContain("walk");
   select("action", "eva_repair");
   expect((d.getElementById("variant") as HTMLSelectElement).value).toBe("eva");
   select("resolution", "gameplay");
   await tick(33);
+  for (let i = 0; i < 75 && !draws.some((a) => a[2] === 16 && a[3] === 24); i++)
+    await new Promise((r) => setTimeout(r, 20));
   expect(draws.some((args) => args[2] === 16 && args[3] === 24)).toBe(true);
   (d.getElementById("pause") as HTMLButtonElement).click();
   await tick(50);

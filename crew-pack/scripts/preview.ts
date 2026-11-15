@@ -6,7 +6,7 @@ const manifest = manifestSchema.parse(
   ),
   images: Record<string, string> = {};
 for (const a of manifest.atlases)
-  for (const path of [a.master, a.gameplay])
+  for (const path of [a.master, a.detail, a.gameplay])
     images[path] =
       "data:image/png;base64," +
       (await readFile(`assets/${path}`)).toString("base64");
