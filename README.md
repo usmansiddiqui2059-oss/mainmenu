@@ -1,5 +1,12 @@
 # Mission Control — menu, revision 2.0.1
 
+## Eight-person crew pack
+
+[Download the complete crew pack ZIP](https://github.com/usmansiddiqui2059-oss/mainmenu/raw/refs/heads/main/downloads/Mission-Control-Crew-Pack.zip). The new [crew-pack/](crew-pack/) contains all eight character designs, portraits, cabin/EVA sprites, four facings, eleven animation states, editable sources and a standalone offline preview.
+
+Give Claude the ZIP and start with [crew-pack/CLAUDE_HANDOFF.md](crew-pack/CLAUDE_HANDOFF.md). After extracting, open `crew-pack/preview/index.html`, or view [the motion study](crew-pack/review/crew-motion.mp4). The crew pack is independent of the menu package described below.
+
+
 A complete local menu package for the Mission Control React / TypeScript game. The second revision replaces the previous typography, page-like layout, olive color grade, procedural scenery, miscellaneous captions, footer branding and sound controls.
 
 This patch corrects the Settings technician: a rear three-quarter work pose, appropriate foreground scale, planted boots, bracing hand and tool tip anchored to the board.

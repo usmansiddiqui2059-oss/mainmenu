@@ -1,0 +1,178 @@
+[
+  {
+    "id": "ayesha",
+    "name": "Ayesha",
+    "role": "power",
+    "trait": "Practical",
+    "gender": "woman",
+    "ageBand": "mid-career veteran",
+    "heightCm": 168,
+    "heightPx": 77,
+    "build": "average sturdy",
+    "appearance": {
+      "skin": "warm medium brown",
+      "hair": "charcoal low bun with grey strands",
+      "detail": "calm eyes and a measured half-smile"
+    },
+    "personality": "Patient, observant and methodical. Notices small problems before they become emergencies.",
+    "signature": "Cuff inspection: checks her wrist seal, then gives one quiet nod.",
+    "tempo": 0.84,
+    "phase": 0.3,
+    "headSource": [197, 47, 108, 94],
+    "bodySource": [179, 48, 156, 364]
+  },
+  {
+    "id": "maya",
+    "name": "Maya",
+    "role": "power",
+    "trait": "Leader",
+    "gender": "woman",
+    "ageBand": "experienced adult",
+    "heightCm": 162,
+    "heightPx": 74,
+    "build": "compact broad-shouldered",
+    "appearance": {
+      "skin": "medium olive brown",
+      "hair": "short dark crop",
+      "detail": "direct eyes and firm relaxed mouth"
+    },
+    "personality": "Composed, decisive and economical with gestures. Reassures others through a steady presence.",
+    "signature": "Team check: a small open-palm acknowledgement followed by a settled stance.",
+    "tempo": 0.94,
+    "phase": 0.8,
+    "headSource": [621, 58, 91, 87],
+    "bodySource": [586, 59, 165, 353]
+  },
+  {
+    "id": "bilal",
+    "name": "Bilal",
+    "role": "comms",
+    "trait": "Thinker",
+    "gender": "man",
+    "ageBand": "early-career adult",
+    "heightCm": 183,
+    "heightPx": 83,
+    "build": "tall lean",
+    "appearance": {
+      "skin": "warm brown",
+      "hair": "short swept-up black hair",
+      "detail": "clean shaven, compact earpiece and eager expression"
+    },
+    "personality": "Curious and diligent, with a little nervous energy. Double-checks a signal before speaking.",
+    "signature": "Headset adjustment: listens, checks a small readout and settles his shoulders.",
+    "tempo": 1.12,
+    "phase": 1.2,
+    "headSource": [1048, 14, 91, 98],
+    "bodySource": [1006, 14, 155, 398]
+  },
+  {
+    "id": "lin",
+    "name": "Lin",
+    "role": "comms",
+    "trait": "Leader",
+    "gender": "woman",
+    "ageBand": "experienced adult",
+    "heightCm": 170,
+    "heightPx": 78,
+    "build": "lean balanced",
+    "appearance": {
+      "skin": "light warm",
+      "hair": "neat dark chin-length bob",
+      "detail": "tidy headset and focused brows"
+    },
+    "personality": "Precise, attentive and unflustered. Gives clear directions and waits for acknowledgement.",
+    "signature": "Readback: touches the headset, pauses to listen, then gives a concise confirmation.",
+    "tempo": 0.92,
+    "phase": 1.8,
+    "headSource": [1460, 48, 103, 94],
+    "bodySource": [1442, 48, 146, 364]
+  },
+  {
+    "id": "sana",
+    "name": "Dr. Sana",
+    "role": "science",
+    "trait": "Thinker",
+    "gender": "woman",
+    "ageBand": "mid-career adult",
+    "heightCm": 159,
+    "heightPx": 73,
+    "build": "compact average",
+    "appearance": {
+      "skin": "medium warm brown",
+      "hair": "dark waves tied back",
+      "detail": "round glasses and curious attentive eyes"
+    },
+    "personality": "Reflective and inquisitive. Pauses to compare evidence before deciding what it means.",
+    "signature": "Observation: adjusts her glasses, tilts her head and notes one detail.",
+    "tempo": 0.86,
+    "phase": 2.4,
+    "headSource": [203, 494, 103, 88],
+    "bodySource": [184, 495, 150, 352]
+  },
+  {
+    "id": "kofi",
+    "name": "Kofi",
+    "role": "science",
+    "trait": "Practical",
+    "gender": "man",
+    "ageBand": "experienced adult",
+    "heightCm": 180,
+    "heightPx": 82,
+    "build": "athletic sturdy",
+    "appearance": {
+      "skin": "deep dark brown",
+      "hair": "close textured crop",
+      "detail": "short neat beard and warm small smile"
+    },
+    "personality": "Hands-on, calm and encouraging. Handles equipment carefully and is quick to share a useful finding.",
+    "signature": "Sample check: raises a labelled-by-code sample container for inspection, then lowers it safely.",
+    "tempo": 0.94,
+    "phase": 2.9,
+    "headSource": [628, 447, 87, 91],
+    "bodySource": [589, 448, 159, 399]
+  },
+  {
+    "id": "omar",
+    "name": "Omar",
+    "role": "launch",
+    "trait": "Practical",
+    "gender": "man",
+    "ageBand": "older veteran",
+    "heightCm": 166,
+    "heightPx": 76,
+    "build": "broad stocky",
+    "appearance": {
+      "skin": "warm tan brown",
+      "hair": "grey temples and short grey beard",
+      "detail": "cautious kind eyes and a measured expression"
+    },
+    "personality": "Grounded and conscientious. Prefers one deliberate check to a hurried assumption.",
+    "signature": "Checklist: follows the entries with a finger, then checks the next item.",
+    "tempo": 0.76,
+    "phase": 3.5,
+    "headSource": [1048, 479, 83, 94],
+    "bodySource": [1007, 480, 155, 367]
+  },
+  {
+    "id": "zara",
+    "name": "Zara",
+    "role": "launch",
+    "trait": "Leader",
+    "gender": "woman",
+    "ageBand": "early-to-mid-career adult",
+    "heightCm": 178,
+    "heightPx": 81,
+    "build": "tall athletic",
+    "appearance": {
+      "skin": "warm tan",
+      "hair": "dark auburn tied braid",
+      "detail": "alert eyes and confident small smile"
+    },
+    "personality": "Energetic, inclusive and focused. Connects a plan to the next concrete action.",
+    "signature": "Briefing: checks the plan, indicates the next station and gives a confident nod.",
+    "tempo": 1.06,
+    "phase": 4.0,
+    "headSource": [1451, 450, 110, 96],
+    "bodySource": [1431, 451, 153, 396]
+  }
+]

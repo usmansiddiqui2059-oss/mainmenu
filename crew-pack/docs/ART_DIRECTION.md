@@ -1,0 +1,15 @@
+# Character and suit direction
+
+The prior menu's neutral pressure suit is the common reference: ivory fabric, charcoal joint seals, blue-grey hardware, dark visor, restrained role accents, ribbed glove/boot transitions and a compact life-support pack. Personal identity lives in height, build, hair, face, stance and professional gestures. There are no armor spikes, exaggerated waists, different suit technology for different genders or decorative agency logos.
+
+The supplied roster contains five women and three men. Their chosen heights span 159–183 cm and source sprites span 73–83 pixels before the EVA helmet. These are fictional art decisions; gender does not determine height or ability. Maya and Omar are broader; Bilal is the leanest and tallest; Zara and Kofi are athletic; Ayesha has a settled veteran stance; Lin is balanced; Sana is compact. Scale remains constant across the set.
+
+Role accents use amber for power, blue for comms, teal for science and muted violet for launch. `Mission Night Crew 64` keeps the parent menu's 48 colors and adds 12 skin/hair neutrals plus four restrained role shades. This is a deliberate palette extension of the user's revised menu direction, replacing the reference brief's proposed Endesga 32. The complete palette is in `art-src/palette.hex`; no runtime grading/filter/glow is applied.
+
+Portraits share eye line y=24, a 44-pixel head crop width and 64 × 64 transparent canvas. Hairstyles retain their differences. Neutral, worried and happy use the same underlying face, with small mouth changes; they are not three unrelated generated people. At 16 × 24, portraits carry identity in UI while sprites communicate silhouette, suit and role. Use 64 × 96 frames for close-up scenes; avoid expecting tiny gameplay sprites to show readable eye details.
+
+Ayesha checks a seal; Maya acknowledges a team member; Bilal adjusts a headset; Lin listens before confirming; Sana adjusts glasses; Kofi inspects a sample; Omar follows a checklist; Zara indicates a next step. The traits describe behavior, not competence rankings. Gestures stay restrained enough for a serious mission simulation.
+
+Cabin suits are helmet-off only in a pressurized interior. EVA suits have a closed opaque helmet, collar connection, gloves, boots and backpack; no hair protrudes. The designs are fictional near-future game equipment inspired by recognizable astronaut construction, not engineering drawings of certified flight hardware. Zero-g movement needs an environmental tether, and exterior repair needs a mounted contact/foot restraint. Those scene-dependent elements remain separate from the sprite.
+
+The original eight-person concept was generated with an image tool. Production scripts crop it to the shared grid, quantize the palette, remove the studio background, articulate the silhouettes, draw sealed helmets/rear packs/tools, and export binary-alpha assets. Source annotations, textures and rigs remain editable. This provenance is logged in `CREDITS.md`; no hand-painting claim is made.

@@ -1,0 +1,79 @@
+[
+  {
+    "id": "idle",
+    "label": "Idle / breathing",
+    "fps": 2,
+    "frames": 8,
+    "loop": true
+  },
+  {
+    "id": "walk",
+    "label": "Walk",
+    "fps": 10,
+    "frames": 8,
+    "loop": true
+  },
+  {
+    "id": "work",
+    "label": "Role work",
+    "fps": 4,
+    "frames": 8,
+    "loop": true
+  },
+  {
+    "id": "talk",
+    "label": "Brief conversation",
+    "fps": 5,
+    "frames": 8,
+    "loop": true
+  },
+  {
+    "id": "think",
+    "label": "Consider / inspect",
+    "fps": 3,
+    "frames": 8,
+    "loop": true
+  },
+  {
+    "id": "concern",
+    "label": "Concern / pause",
+    "fps": 3,
+    "frames": 8,
+    "loop": true
+  },
+  {
+    "id": "celebrate",
+    "label": "Restrained success",
+    "fps": 8,
+    "frames": 8,
+    "loop": false
+  },
+  {
+    "id": "point",
+    "label": "Direct attention",
+    "fps": 8,
+    "frames": 8,
+    "loop": false
+  },
+  {
+    "id": "signature",
+    "label": "Personal signature",
+    "fps": 3,
+    "frames": 8,
+    "loop": true
+  },
+  {
+    "id": "eva_float",
+    "label": "Tethered zero-g float",
+    "fps": 2,
+    "frames": 8,
+    "loop": true
+  },
+  {
+    "id": "eva_repair",
+    "label": "Braced repair",
+    "fps": 4,
+    "frames": 8,
+    "loop": true
+  }
+]

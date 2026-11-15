@@ -1,0 +1,28 @@
+{
+  "name": "mission-control-crew-pack",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "tsx scripts/rebuild.ts",
+    "check": "tsc --noEmit",
+    "test": "vitest run --config vitest.config.ts",
+    "verify": "tsx scripts/verify.ts",
+    "review:video": "tsx scripts/video.ts"
+  },
+  "dependencies": {
+    "zod": "4.6.7"
+  },
+  "devDependencies": {
+    "@napi-rs/canvas": "0.1.100",
+    "@types/jsdom": "27.0.0",
+    "@types/node": "24.19.2",
+    "jsdom": "27.4.0",
+    "tsx": "4.20.6",
+    "typescript": "5.9.3",
+    "vitest": "4.1.12"
+  },
+  "engines": {
+    "node": ">=20.19.0"
+  }
+}

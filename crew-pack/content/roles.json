@@ -1,0 +1,30 @@
+{
+  "power": {
+    "name": "Power & Life Support",
+    "accent": "c99d55",
+    "highlight": "e8bf71",
+    "tool": "diagnostic meter",
+    "work": "Reads a handheld diagnostic meter and moves its probe with a controlled wrist motion."
+  },
+  "comms": {
+    "name": "Comms & Navigation",
+    "accent": "49789c",
+    "highlight": "65a1bd",
+    "tool": "headset and navigation tablet",
+    "work": "Listens on headset, checks the tablet and gives a short acknowledgement."
+  },
+  "science": {
+    "name": "Science",
+    "accent": "35726f",
+    "highlight": "6aa49b",
+    "tool": "sample vial and field tablet",
+    "work": "Raises a sealed sample for inspection while keeping the support hand steady."
+  },
+  "launch": {
+    "name": "Launch & Budget",
+    "accent": "76657f",
+    "highlight": "a28baf",
+    "tool": "launch checklist tablet",
+    "work": "Holds a checklist tablet and tracks an item with the right hand."
+  }
+}
