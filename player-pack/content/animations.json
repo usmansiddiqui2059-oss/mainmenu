@@ -1,0 +1,17 @@
+{
+  "idle": {
+    "frames": 8,
+    "fps": 2,
+    "loop": true,
+    "description": "Quiet breath and slight weight transfer; both soles stay planted."
+  },
+  "walk": {
+    "frames": 12,
+    "fps": 10,
+    "loop": true,
+    "description": "One full alternating gait cycle, opposing arm swing, bent swing knee and planted stance sole.",
+    "stanceFraction": 0.6,
+    "footTravel": 18,
+    "swingClearance": 5
+  }
+}

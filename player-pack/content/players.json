@@ -1,0 +1,26 @@
+[
+  {
+    "id": "player_female",
+    "label": "Female player",
+    "gender": "woman",
+    "heightCm": 170,
+    "modelScale": 0.955,
+    "shoulderHalfWidth": 9.7,
+    "hipHalfWidth": 7.1,
+    "appearance": "Athletic average build, warm medium-brown skin, dark close curls and a small high knot.",
+    "stance": "Relaxed shoulders, attentive gaze, steady feet.",
+    "headHeightPx": 38
+  },
+  {
+    "id": "player_male",
+    "label": "Male player",
+    "gender": "man",
+    "heightCm": 178,
+    "modelScale": 1,
+    "shoulderHalfWidth": 10.3,
+    "hipHalfWidth": 7.2,
+    "appearance": "Ordinary athletic build, warm tan skin, short swept-back dark hair and light stubble.",
+    "stance": "Balanced, unhurried posture with a focused expression.",
+    "headHeightPx": 36
+  }
+]

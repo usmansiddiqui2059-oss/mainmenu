@@ -1,0 +1,14 @@
+{
+  "name": "Expedition field suit",
+  "description": "Common player suit: ivory shoulder shell and shin guards, navy pressure fabric, weathered-copper chest chevron and backpack spine, dark boots and compact life support.",
+  "paletteName": "Mission Night Crew 64",
+  "materials": {
+    "navy": ["070b12", "101a29", "20314a", "3b526d"],
+    "ivory": ["515966", "8d969e", "d4d5cd", "faf4df"],
+    "copper": ["593c35", "94614a", "b9674d", "d29b66"],
+    "rubber": ["070b12", "181a20", "3b414b", "515966"],
+    "metal": ["282c35", "515966", "8d969e", "bdc8ce"],
+    "visor": ["070b12", "101a29", "20314a", "365471"],
+    "dark": ["070b12", "070b12", "181a20", "282c35"]
+  }
+}

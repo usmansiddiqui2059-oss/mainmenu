@@ -23,3 +23,5 @@ Font source: [Fontsource Barlow Condensed](https://fontsource.org/fonts/barlow-c
 The supplied spacecraft, astronaut and game-menu images were visual references. Their original files are not embedded. The environment concept and deterministic cleanup are identified explicitly; the deliverable does not claim that AI-assisted source painting was hand-painted by a human artist.
 
 The eight-person crew expansion has its own asset log and font attribution in [crew-pack/CREDITS.md](crew-pack/CREDITS.md).
+
+The two main-player appearances, directional head artwork and exports are credited in [player-pack/CREDITS.md](player-pack/CREDITS.md).

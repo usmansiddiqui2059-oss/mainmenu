@@ -1,4 +1,11 @@
-# Mission Control — menu, revision 2.0.1
+# Mission Control — menu and character assets
+
+## Main player — female and male
+
+[Download the player asset/source ZIP](https://github.com/usmansiddiqui2059-oss/mainmenu/raw/refs/heads/main/downloads/Mission-Control-Player-Pack.zip). Two selectable appearances, eight actual directions, idle/walk cycles, cabin/EVA suits, three resolutions and an offline inspection preview.
+
+Start with [player-pack/CLAUDE_HANDOFF.md](player-pack/CLAUDE_HANDOFF.md). Extract the ZIP and open `player-pack/preview/index.html`; use pause/step and the eight-direction strip to inspect the animation. The [turnaround review](player-pack/review/turnarounds.png) and [motion study](player-pack/review/Player-Animation-Study.mp4) are also included.
+
 
 ## Eight-person crew pack
 
